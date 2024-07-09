@@ -1,0 +1,38 @@
+
+###
+GET http://localhost:8080/artigos
+
+###
+
+GET http://localhost:8080/artigos/2
+
+
+###
+
+POST http://localhost:8080/artigos
+Content-Type: application/json
+
+{
+    "nome": "Básico de Angular",
+    "descricao": "Conhecimentos básicos de TypeScript no Front-end com Angular",
+    "conteudo": "Angular.",
+    "imagem": "https://via.placeholder.com/150",
+    "github": "https://github.com/MarquinhoCoelho/node-crud"
+}
+
+
+###
+
+PUT http://localhost:8080/artigos/2
+Content-Type: application/json
+
+{
+    "nome": "Básico de Node.JS",
+    "descricao": "Meus conhecimentos básicos de JavaScript no backend com Node.JS",
+    "conteudo": "JavaScript é uma linguagem de programação amplamente utilizada no desenvolvimento web, tanto no lado do cliente quanto no servidor. Ela possibilita a criação de páginas web interativas e dinâmicas.\n\nUtilizamos o Fastify como framework para auxiliar no desenvolvimento. Dentre todos os frameworks disponíveis para uso com Node.js, escolhemos o Fastify por proporcionar maior liberdade no desenvolvimento. Diferente de outros frameworks que impõem padrões rígidos, o Fastify permite uma abordagem mais flexível, adaptando-se melhor às necessidades específicas do projeto.",
+    "imagem": "https://via.placeholder.com/150",
+    "github": "https://github.com/MarquinhoCoelho/node-crud"
+}
+
+###
+DELETE http://localhost:8080/artigos/1

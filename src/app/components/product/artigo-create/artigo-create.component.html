@@ -1,0 +1,28 @@
+<mat-card>
+    <mat-card-title>Novo Artigo</mat-card-title>
+    <form>
+        <mat-form-field>
+            <input matInput placeholder="Nome" [(ngModel)]="artigo.nome" name="nome">
+        </mat-form-field>
+        <mat-form-field>
+            <textarea style="min-height: 50px;" matInput placeholder="Descrição" [(ngModel)]="artigo.descricao" name="descricao"></textarea>
+        </mat-form-field>
+        <mat-form-field>
+            <textarea style="min-height: 100px;" matInput placeholder="Conteúdo" [(ngModel)]="artigo.conteudo" name="conteudo"></textarea>
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Imagem" [(ngModel)]="artigo.imagem" name="imagem">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="GitHub" [(ngModel)]="artigo.github" name="github">
+        </mat-form-field>
+    </form>
+    <button mat-raised-button (click)="criarArtigo()" color="primary">
+        Salvar
+    </button>
+    
+    <button mat-raised-button (click)="cancel()">
+        Cancelar
+    </button>
+</mat-card>
+

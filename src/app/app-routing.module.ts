@@ -1,11 +1,11 @@
-import { ProductDeleteComponent } from './components/product/product-delete/product-delete.component';
-import { ProductUpdateComponent } from './components/product/product-update/product-update.component';
 import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
 
 import { HomeComponent } from "./views/home/home.component";
-import { ProductCrudComponent } from "./views/product-crud/product-crud.component";
-import { ProductCreateComponent } from './components/product/product-create/product-create.component';
+import { ArtigoCrudComponent } from './views/artigos-crud/artigo-crud.component';
+import { ArtigoCreateComponent } from "./components/product/artigo-create/artigo-create.component";
+import { ArtigoDeleteComponent } from "./components/product/artigo-delete/artigo-delete.component";
+import { ArtigoUpdateComponent } from "./components/product/artigo-update/artigo-update.component";
 
 
 const routes: Routes = [
@@ -14,20 +14,20 @@ const routes: Routes = [
     component: HomeComponent
   },
   {
-    path: "products",
-    component: ProductCrudComponent
+    path: "artigos",
+    component: ArtigoCrudComponent
   },
   {
-    path: "products/create",
-    component: ProductCreateComponent
+    path: "artigos/create",
+    component: ArtigoCreateComponent
   },
   {
-    path: "products/update/:id",
-    component: ProductUpdateComponent
+    path: "artigos/update/:id",
+    component: ArtigoUpdateComponent
   },
   {
-    path: "products/delete/:id",
-    component: ProductDeleteComponent
+    path: "artigos/delete/:id",
+    component: ArtigoDeleteComponent
   },
 ];
 

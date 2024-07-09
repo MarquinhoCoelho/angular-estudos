@@ -1,15 +1,14 @@
 import { Injectable } from "@angular/core";
 import { MatSnackBar } from "@angular/material/snack-bar";
 import { HttpClient } from "@angular/common/http";
-import { Product } from "./product.model";
 import { Observable, EMPTY, Observer } from "rxjs";
 import { map, catchError } from "rxjs/operators";
 
 @Injectable({
   providedIn: "root",
 })
-export class ProductService {
-  baseUrl = "https://json-server-marcos.vercel.app";
+export class ArtigoService {
+  baseUrl = "http://localhost:8080/artigos";
 
   constructor(private snackBar: MatSnackBar, private http: HttpClient) {}
 
@@ -22,9 +21,9 @@ export class ProductService {
     });
   }
 
-  create(product: Product): Observable<Product> {
+  create(artigo: any): Observable<any> {
     return new Observable((observer: Observer<any>) => {
-      this.http.post<Product>(this.baseUrl+'/products', product).subscribe(response => {
+      this.http.post<any>(this.baseUrl, artigo).subscribe(response => {
         observer.next(response);
         observer.complete();
       }, (error: any) => {
@@ -37,26 +36,26 @@ export class ProductService {
     });
   }
 
-  read(): Observable<Product[]> {
-    return this.http.get<Product[]>(this.baseUrl+'/products').pipe(
+  read(): Observable<any[]> {
+    return this.http.get<any[]>(this.baseUrl).pipe(
       map((obj) => obj),
       catchError((e) => this.errorHandler(e))
     );
   }
 
-  readById(id: number): Observable<Product> {
-    const url = `${this.baseUrl}/products/${id}`;
-    return this.http.get<Product>(url).pipe(
+  readById(id: number): Observable<any> {
+    const url = `${this.baseUrl}/${id}`;
+    return this.http.get<any>(url).pipe(
       map((obj) => obj),
       catchError((e) => this.errorHandler(e))
     );
   }
 
-  update(product: Product): Observable<Product> {
-    const url = `${this.baseUrl}/products/${product.id}`;
+  update(artigo: any): Observable<any> {
+    const url = `${this.baseUrl}/${artigo.id}`;
 
     return new Observable((observer: Observer<any>) => {
-      this.http.put<Product>(url, product).subscribe(response => {
+      this.http.put<any>(url, artigo).subscribe(response => {
         observer.next(response);
         observer.complete();
       }, (error: any) => {
@@ -69,11 +68,11 @@ export class ProductService {
     });
   }
 
-  delete(id: number): Observable<Product> {
-    const url = `${this.baseUrl}/products/${id}`;
+  delete(id: number): Observable<any> {
+    const url = `${this.baseUrl}/${id}`;
 
     return new Observable((observer: Observer<any>) => {
-      this.http.delete<Product>(url).subscribe(response => {
+      this.http.delete<any>(url).subscribe(response => {        
         observer.next(response);
         observer.complete();
       }, (error: any) => {
